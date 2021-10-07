@@ -1,0 +1,101 @@
+<section id="informationAccount" th:fragment="information" class="card banqueBloc">
+
+    <div class="card-header">
+        Account information
+    </div>
+
+    <div class="card-body">
+
+        <div class="container" th:if="${compte}" th:with="compteClass = ${compte?.getClass().getSimpleName()}">
+
+            <div class="row">
+
+                <div class="col-md-6">
+                    Client:
+                </div>
+
+                <div class="col-md-6">
+
+                    <span th:text="${compte?.getClient()?.getFullName()}"></span>
+
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-6">
+                    Code compte:
+                </div>
+
+                <div class="col-md-6">
+                    <span th:text="${compte?.getCodeCompte()}"></span>
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-6">
+                    Solde:
+                </div>
+
+                <div class="col-md-6">
+                    <span th:text="${compte?.getSolde()}"></span>
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-6">
+                    Date création:
+                </div>
+
+                <div class="col-md-6">
+                    <span th:text="${compte?.getDateCreation()}"></span>
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-6">
+                    Type compte:
+                </div>
+
+                <div class="col-md-6">
+                    <span th:text="${compteClass}"></span>
+                </div>
+
+            </div>
+
+            <div class="row" th:if="${compteClass.equals('CompteCourant')}">
+
+                <div class="col-md-6">
+                    Découvert:
+                </div>
+
+                <div class="col-md-6">
+                    <span th:text="${compte?.getDecouvert()}"></span>
+                </div>
+
+            </div>
+
+            <div class="row" th:if="${compteClass.equals('CompteEpargne')}">
+
+                <div class="col-md-6">
+                    Taux:
+                </div>
+
+                <div class="col-md-6">
+                    <span th:text="${compte?.getTaux()}"></span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>

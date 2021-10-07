@@ -1,0 +1,72 @@
+<section id="applyOperation" th:fragment="apply" class="card banqueBloc">
+
+    <div class="card-header">
+        Apply an operation
+    </div>
+
+    <div class="card-body">
+
+        <form th:action="@{operations/save}">
+
+            <div class="container-fluid">
+
+                <div class="row">
+
+                    <div class="col-4">
+
+                        <label for="codeCompte" class="form-label">Code compte: </label>
+                        <input type="text" class="form-control" id="codeCompte" name="codeCompte"/>
+
+                    </div>
+
+                    <div id="codeCompteVirementBloc" class="col-4 hide">
+
+                        <label for="codeCompteVirement" class="form-label">Code compte à verser: </label>
+                        <input type="text" class="form-control" id="codeCompteVirement" name="codeCompteVirement"/>
+
+                    </div>
+
+
+                    <div class="col-4">
+
+                        <label for="montant" class="form-label">Montant: </label>
+                        <input type="number" class="form-control" id="montant" name="montant"/>
+
+                    </div>
+
+                </div>
+
+                <div class="row row-cols-3 mt-4 mb-4" style="margin-left: 5px;">
+
+                    <div class="col form-check">
+
+                        <input type="radio" class="form-check-input operationType" id="versement" value="VERSEMET" name="operationType" checked/>
+                        <label for="versement" class="form-check-label">Versement</label>
+
+                    </div>
+
+                    <div class="col form-check">
+
+                        <input type="radio" class="form-check-input operationType" id="retrait" value="RETRAIT" name="operationType"/>
+                        <label for="retrait" class="form-check-label">Retrait</label>
+
+                    </div>
+
+                    <div class="col form-check">
+
+                        <input type="radio" class="form-check-input operationType" id="virement" value="VIREMENT" name="operationType"/>
+                        <label for="virement" class="form-check-label">Virement</label>
+
+                    </div>
+
+                </div>
+
+                <button type="submit" class="btn btn-primary">Save</button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</section>

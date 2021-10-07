@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layouts/_banque">
+    <!-- layout:decorator fait la liaison avec le bon template par son nom. layout:decorate="~{_banque.html}" -->
+
+    <body>
+
+        <div layout:fragment="content">
+
+            <h3>Comptes</h3>
+
+            <div th:replace="~{/fragments/compte/_target}"></div>
+            <div th:replace="~{/fragments/compte/_information}"></div>
+
+        </div>
+
+    </body>
+
+</html>

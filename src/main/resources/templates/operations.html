@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layouts/_banque">
+
+    <body>
+
+        <div layout:fragment="content">
+
+            <h3>Operations</h3>
+
+            <div th:replace="~{/fragments/operation/_save}"></div>
+            <div th:replace="~{/fragments/operation/_showAll}"></div>
+
+            <script type="text/javascript" src="../../static/js/operations.js" th:src="@{/js/operations.js}"></script>
+            <script th:inline="javascript">
+
+                operations.init();
+
+            </script>
+
+        </div>
+
+    </body>
+
+</html>

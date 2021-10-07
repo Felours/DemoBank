@@ -1,0 +1,65 @@
+<section id="showAllOperations" th:fragment="showAll" class="card banqueBloc">
+
+    <div class="card-header">
+        Operations
+    </div>
+
+    <div class="card-body">
+
+        <form th:action="@{operations}" method="GET">
+
+            <div th:replace="~{/fragments/compte/_findByCodeCompte}"></div>
+
+        </form>
+
+        <table class="table mt-3" th:if="${operations}">
+
+            <thead class="table-dark">
+
+            <tr>
+
+                <th>Type operation</th>
+                <th>Numero</th>
+                <th>Code Compte</th>
+                <th>Date opération</th>
+                <th>Montant</th>
+
+            </tr>
+
+            </thead>
+
+            <tbody>
+
+            <tr th:each="operation, state: ${operations}">
+
+                <td th:text="${operation?.getClass().getSimpleName()}"></td>
+                <td scope="row" th:text="${operation?.getNumero()}"></td>
+                <td th:text="${operation?.getCompte()?.getCodeCompte()}"></td>
+                <td th:text="${operation?.getDateOperation()}"></td>
+                <td th:text="${operation?.getMontant()}"></td>
+
+            </tr>
+
+            </tbody>
+
+        </table>
+
+        <nav aria-label="Page navigation example" th:if="${pageNumbers != null && operationPage.totalPages > 0}">
+
+            <ul class="pagination pagination-lg justify-content-center">
+
+                <li class="page-item" th:each="pageNumber: ${pageNumbers}">
+                    <a class="page-link"
+                       th:href="@{/operations(size=${operationPage.size}, page=${pageNumber - 1}, codeCompte=${codeCompte})}"
+                       th:text="${pageNumber}"
+                       th:class="${pageNumber == (operationPage.number + 1)} ? active"
+                    ></a>
+                </li>
+
+            </ul>
+
+        </nav>
+        
+    </div>
+
+</section>

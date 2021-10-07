@@ -1,0 +1,58 @@
+<section id="showAllClients" th:fragment="showAll" class="card banqueBloc">
+
+    <div class="card-header">
+        Clients
+    </div>
+
+    <div class="card-body">
+
+        <table class="table" th:if="${clients}">
+
+            <thead class="table-dark">
+
+                <tr>
+
+                    <th>Code</th>
+                    <th>Nom</th>
+                    <th>Prenom</th>
+                    <th>Email</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr th:each="client, state: ${clients}">
+
+                    <!-- th:attrappend="${state.index == 0 ?  : ''}" -->
+                    <td scope="row" th:text="${client.getCode()}"></td>
+                    <td th:text="${client.getNom()}"></td>
+                    <td th:text="${client.getPrenom()}"></td>
+                    <td th:text="${client.getEmail()}"></td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+        <nav aria-label="Page navigation example" th:if="${pageNumbers != null && clientPage.totalPages > 0}">
+
+            <ul class="pagination pagination-lg justify-content-center">
+                
+                <li class="page-item" th:each="pageNumber: ${pageNumbers}">
+                    <a class="page-link"
+                       th:href="@{/clients(size=${clientPage.size}, page=${pageNumber - 1})}"
+                       th:text="${pageNumber}"
+                       th:class="${pageNumber == (clientPage.number + 1)} ? active"
+                    ></a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </div>
+
+</section>

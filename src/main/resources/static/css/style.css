@@ -1,0 +1,56 @@
+#main{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+}
+
+#main>*:first-child{
+
+    align-self: stretch;
+    margin: 10px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+
+}
+
+#main > .banqueBloc {
+
+    align-self: center;
+
+}
+
+.horizontalCenterContent{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+}
+
+.horizontalCenterContent > * {
+
+    align-self: center;
+
+}
+
+.hide {
+
+    display: none;
+
+}
+
+.banqueBloc{
+
+    width: 80vw;
+
+}
+
+.banqueBloc:not(:last-child){
+
+    margin-bottom: 15px;
+
+}

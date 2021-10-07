@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layouts/_banque">
+
+    <body>
+
+        <div layout:fragment="content">
+
+            <h3>Clients</h3>
+
+            <div th:replace="~{/fragments/client/_showAll}"></div>
+
+        </div>
+
+    </body>
+
+</html>

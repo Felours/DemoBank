@@ -1,0 +1,17 @@
+<section id="targetCompte" th:fragment="target" class="card banqueBloc">
+
+  <div class="card-header">
+    Sélectionner un compte
+  </div>
+
+  <div class="card-body">
+
+    <form th:action="@{comptes/find}" method="GET">
+
+      <div th:replace="~{/fragments/compte/_findByCodeCompte}"></div>
+
+    </form>
+
+  </div>
+
+</section>
