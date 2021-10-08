@@ -6,6 +6,7 @@ import com.demo.dao.OperationRepository;
 import com.demo.entities.*;
 import com.demo.service.exception.InsufficientBalance;
 import com.demo.service.exception.MissingAccountException;
+import com.demo.service.exception.SameAccountException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -97,6 +98,10 @@ public class BanqueService implements IBanqueService {
 
     @Override
     public void virement(String codeCompte1, String codeCompte2, Double montant) {
+
+        if(codeCompte1.equals(codeCompte2)){
+            throw new SameAccountException("Le virement doit se faire entre deux comptes séparées");
+        }
 
         this.retirer(codeCompte1, montant);
         this.verser(codeCompte2, montant);
